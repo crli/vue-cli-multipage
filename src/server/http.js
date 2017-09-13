@@ -1,0 +1,36 @@
+let repair = 'http://repair.api.wangshengxiang.com'
+let img = 'http://wx.api.wangshengxiang.com'
+let account = 'http://account.api.wangshengxiang.com'
+let guarantee = 'http://guarantee.api.wangshengxiang.com'
+var url = {
+  'studentInfor': repair + '/open/repair/student_info/JZMIAATOUH',
+  'stid': repair + '/open/repair/cname_from_stid/JZMIAATOUH',
+  'uploadimg': img + '/open/uploadimg/index/JZMIAATOUH',
+  'my_repair': repair + '/open/repair/my_repair/JZMIAATOUH',
+  'rdetail': repair + '/open/repair/repair_detail/JZMIAATOUH',
+  'repair': repair + '/open/repair/repair/JZMIAATOUH',
+  'process': repair + '/open/repair/process_index/JZMIAATOUH',
+  'score': repair + '/open/repair/score/JZMIAATOUH',
+  'login': account + '/open/account/login/JZMIAATOUH',
+  'guaranteeList': guarantee + '/open/guarantee/guarantee_list/JZMIAATOUH',
+  'guaranteeview': guarantee + '/open/guarantee/guarantee_view/JZMIAATOUH',
+  'picking': guarantee + '/open/guarantee/picking_add/JZMIAATOUH',
+  'result': guarantee + '/open/guarantee/result_add/JZMIAATOUH',
+  'address': guarantee + '/open/guarantee/address_list/JZMIAATOUH',
+  'address_view': guarantee + '/open/guarantee/address_view/JZMIAATOUH',
+  'address_edit': guarantee + '/open/guarantee/address_edit/JZMIAATOUH',
+  'default_address': guarantee + '/open/guarantee/add_default_address/JZMIAATOUH',
+  'address_add': guarantee + '/open/guarantee/address_add/JZMIAATOUH',
+  'address_del': guarantee + '/open/guarantee/address_del/JZMIAATOUH',
+  'new_guarantee': guarantee + '/open/guarantee/new_guarantee/JZMIAATOUH',
+  'servicestar': guarantee + '/open/guarantee/servicestar_list/JZMIAATOUH',
+  'property_star_list': guarantee + '/open/guarantee/property_star_list/JZMIAATOUH',
+  'property_star_view': guarantee + '/open/guarantee/property_star_view/JZMIAATOUH',
+  'guarantee_one': guarantee + '/open/guarantee/guarantee_one/JZMIAATOUH',
+  'pick_one': guarantee + '/open/pick/pick_one/JZMIAATOUH',
+  'pick_two': guarantee + '/open/pick/pick_two/JZMIAATOUH',
+  'material_select': guarantee + '/open/pick/material_select/JZMIAATOUH',
+  'pick_attribute': guarantee + '/open/pick/pick_attribute/JZMIAATOUH',
+  'home_banner': guarantee + '/open/guarantee/home_banner/JZMIAATOUH'
+}
+export default url
