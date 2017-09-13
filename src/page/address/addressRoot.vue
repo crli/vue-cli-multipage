@@ -10,7 +10,6 @@
 </template>
 
 <script>
-  import Lib from '@config/Lib'
   import {mapState} from 'vuex'
   import {homebanner} from '@server'
   export default {
@@ -22,9 +21,11 @@
       }
     },
     components: {
-      Lib
     },
     async mounted () {
+      this.$vux.loading.show({
+        text: 'Loading'
+      })
       let response = await homebanner()
       if (response.data.Error === 0) {
         this.banner = response.data.data
@@ -43,7 +44,7 @@
 <style scoped lang="scss">
 @import "../../assets/css/mixin";
 .div{
-  @include wh(100px,100px);
+  @include wh(375px,100px);
   background: rebeccapurple;
 }
   .box{

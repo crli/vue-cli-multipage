@@ -10,11 +10,12 @@ module.exports = {
     extract: isProduction
   }),
   postcss: [
+    require('./mycss')(),
     require('autoprefixer')({
       browsers: ['iOS >= 7', 'Android >= 4.1']
     }),
     require('postcss-px2rem')({
-      'remUnit':75,'baseDpr':1
+      'remUnit':37.5
     })
   ]
 }

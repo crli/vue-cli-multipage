@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Vuex from 'vuex'
 Vue.use(Router)
 Vue.use(Vuex)
-
+import '@config/common'
 let address = r => require.ensure([], () => r(require('./addressRoot.vue')), 'address')
 let addresschange = r => require.ensure([], () => r(require('./addresschange.vue')), 'addresschange')
 const routes = [
@@ -43,7 +43,6 @@ const store = new Vuex.Store({
   }
 })
 /* eslint-disable */
-import Lib from '@config/Lib'
 new Vue({
   el: '#app',
   template: '<App/>',
