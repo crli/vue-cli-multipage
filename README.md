@@ -42,7 +42,7 @@ webpack
  |---config 插件
      |---js/common.js    #全局样式依赖与公共组建
      |---js/fleible.js    #手淘rem自适应
-     |---js/wx.js    #微信相关方法
+     |---js/lib.js    #微信,以及封装的方法
      |---js/mUtils.js    # 自定义方法
      |---js/vueFilter.js    #注册vue的全局过滤器
  |---server 接口
@@ -93,6 +93,14 @@ import '@config/common'
 ```
 这就是全局统一公共模块
 
+## lib.js库使用
+
+在`lib.js`调用事件
+
+``` bash
+import lib from '@config/lib';
+lib.ajax({}); 
+```
 
 ## 公共模块
 我们通常会把常用的库都打包成公共模块，`CommonsChunkPlugin` 插件，是一个可选的用于建立一个独立文件(又称作 chunk)的功能，这个文件包括多个入口 chunk 的公共模块。最终合成的文件能够在最开始的时候加载一次，便存起来到缓存中供后续使用。这个带来速度上的提升，因为浏览器会迅速将公共的代码从缓存中取出来，而不是每次访问一个新页面时，再去加载一个更大的文件。

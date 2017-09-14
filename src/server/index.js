@@ -53,4 +53,4 @@ axios.interceptors.response.use((res) => {
 })
 import allurl from './http'
 /* eslint-disable */
-export const homebanner = () => axios.post(allurl.home_banner, {})
+export const homebanner = (q) => axios.post(allurl.home_banner, {q:q})
