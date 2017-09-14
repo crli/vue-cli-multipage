@@ -10,12 +10,14 @@ module.exports = {
     extract: isProduction
   }),
   postcss: [
-    require('./mycss')(),
     require('autoprefixer')({
       browsers: ['iOS >= 7', 'Android >= 4.1']
     }),
-    require('postcss-px2rem')({
-      'remUnit':37.5
+    require('postcss-plugin-px2rem')({
+      rootValue: 37.5, // 这里对应的是750的设计图尺寸
+      selectorBlackList: ['html'],
+      mediaQuery: true,
+      propBlackList: ['font-size'] // 如果要保持font-size不转换
     })
   ]
 }

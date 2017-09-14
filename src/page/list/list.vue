@@ -5,6 +5,7 @@
 </template>
 
 <script>
+  import { Indicator } from 'mint-ui'
   export default {
     components: {
     },
@@ -14,6 +15,13 @@
     },
     // 加载数据
     mounted () {
+      Indicator.open({
+        text: '加载中...',
+        spinnerType: 'fading-circle'
+      })
+      setTimeout(function () {
+        Indicator.close()
+      }, 3000)
     },
     // 相关操作事件
     methods: {

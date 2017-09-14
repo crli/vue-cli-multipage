@@ -1,7 +1,26 @@
 <template>
   <div id="address">
-    <div class="div">{{value}}</div>
+    <div class="div">{{div}}</div>
     <div class="box">{{list}}</div>
+    <group :title="value + ''">
+      <datetime-range :title="'Choose'" start-date="2017-01-01" end-date="2017-02-02" :format="'daterange-format'" v-model="value" @on-change="onChange"></datetime-range>
+    </group>
+    <div>
+      <group :title="'Basic Usage'">
+        <x-switch :title="'default false'"></x-switch>
+        <x-switch :title="'default true'" :inline-desc="value1 + ''" v-model="value1"></x-switch>
+      </group>
+      <group :title="'disabled'">
+        <x-switch :title="'default false'" disabled></x-switch>
+        <x-switch :title="'default true'" :value="true" disabled></x-switch>
+      </group>
+      <group :title="'prevent default'">
+        <x-switch :title="'default false'" prevent-default v-model="value2" @on-click="onClick"></x-switch>
+      </group>
+      <group :title="'html title'">
+        <x-switch disabled :title="'switch red'"></x-switch>
+      </group>
+    </div>
     <router-link to="address/addresschange">去子路由</router-link>
     <transition name="router-slid">
       <router-view></router-view>
@@ -12,20 +31,26 @@
 <script>
   import {mapState} from 'vuex'
   import {homebanner} from '@server'
+  import {XSwitch, Group, DatetimeRange, CellFormPreview, Cell} from 'vux'
   export default {
     name: 'address',
     data () {
       return {
-        value: 1,
-        banner: {}
+        div: 1,
+        banner: {},
+        value: ['2017-01-15', '03', '05'],
+        value1: true,
+        value2: false
       }
     },
     components: {
+      XSwitch,
+      Group,
+      DatetimeRange,
+      CellFormPreview,
+      Cell
     },
     async mounted () {
-      this.$vux.loading.show({
-        text: 'Loading'
-      })
       let response = await homebanner()
       if (response.data.Error === 0) {
         this.banner = response.data.data
@@ -37,7 +62,21 @@
       ])
     },
     // 相关操作事件
-    methods: {}
+    methods: {
+      onChange (val) {
+        console.log('change', val)
+      },
+      onClick (newVal, oldVal) {
+        console.log(newVal, oldVal)
+        this.$vux.loading.show({
+          text: 'in processing'
+        })
+        setTimeout(() => {
+          this.$vux.loading.hide()
+          this.value2 = newVal
+        }, 1000)
+      }
+    }
   }
 </script>
 
@@ -45,9 +84,16 @@
 @import "../../assets/css/mixin";
 .div{
   @include wh(375px,100px);
+  text-align: center;
+  line-height: 100px;
   background: rebeccapurple;
+  font-size: 16px;
 }
   .box{
-    font-size: 30px;/*px*/
+    text-align: center;
+    line-height: 100px;
+    font-size: 16px;
+    @include wh(100%,100px);
+    background: #eee;
   }
 </style>
