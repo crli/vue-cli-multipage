@@ -90,7 +90,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       chunks: chunks,
-      minChunks: 3 || chunks.length
+      minChunks: 3 || chunks.length //意思代表为至少被3个页面引用了，就打包进入公共模块
     }),
     /*
       // copy custom static assets
