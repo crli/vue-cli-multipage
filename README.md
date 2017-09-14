@@ -5,9 +5,9 @@ vue-Multipage
  3. 构建时，增加对css打包的支持
  4. 提取公共模块
  5. 多页面可使用vue-router2路由,路由按需加载
- 6. 可自定义页面模块名，例如 http:// localhost:8091/`page`/home/list.html，`page`就是我们线上的模块名，
+ 6. 可自定义页面模块名，例如 http:// localhost:8091/`page`/list.html，`page`就是我们线上的模块名，
  7. 模块下静态文件可直接调用
- 8. 整合了vue最流行的UI框架，`vuxui2.x`，`mint-ui`
+ 8. 整合了vue最流行的UI框架，`vuxui2.x`，`mint-ui`弹窗提示使用的mint-ui,不用可不引入
  9. 基于`webpack2`，更高的构建速度，包体积更小，全面支持`ES6 Modules`
  10. 热更新，效率提升神器呀
  11. 支持`Less`css预处理,`Sass`css预处理
@@ -71,6 +71,17 @@ webpack
 
 还有一点要注意的，所有的目录都要求为二级，不能一个目录下为一级，另一个目录下有二级。
 
+
+## 移动自适应
+
+`/build/webpack.prod.conf.js` 中配置了`postcss-plugin-px2rem`
+
+因为vux 默认大小`375`,为了与`fleible.js`兼容 配置 `rootValue: 37.5`以及`propBlackList: ['font-size'] // 保持font-size不转换成rem`
+
+此时如果如果页面基准是`750`,者如果PSD图大小`100px`, 字号大小`32`,则代码编写为 `width:50px; font-size:16px` 
+
+编译结果`width` 转为了`rem` , `font-size` 保持`16px`不变
+
 ## common.js库使用
 
 我们做多页面开发，那肯定会涉及到全局都能调用的公共库，或者是把别人封装的库也一起打包在全局公共模块里。
@@ -88,6 +99,3 @@ import '@config/common'
 
 不同的项目，使用到的插件库数量有所不同，我们可以调整`minChunks`以达到公共模块的大小，文件路径为`/build/webpack.prod.conf.js`，cart+F查找`minChunks`参数，`minChunks: 3` 意思代表为至少被3个页面引用了，就打包进入公共模块，具体的使用方法，可以再详细了解`webpack`中文文档。http://www.css88.com/doc/webpack2/plugins/commons-chunk-plugin/
 
-
-## 结束言
-此vue多页面脚手架，并不局限于vux ui 框架，。
