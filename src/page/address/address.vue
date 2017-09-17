@@ -21,7 +21,7 @@
         <x-switch disabled :title="'switch red'"></x-switch>
       </group>
     </div>
-    <router-link to="address/addresschange">去子路由</router-link>
+    <router-link to="address/addresschange">去子路由1111</router-link>
     <transition name="router-slid">
       <router-view></router-view>
     </transition>

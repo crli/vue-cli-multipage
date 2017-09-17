@@ -3,8 +3,7 @@ var path = require('path')
 
 module.exports = {
 
-  //网站模块名，例如 http://192.168.0.216:8081/module/app/initlayer.html 中的
-  //【page】，默认为page，修改这里的配置的同时，也要同时重命名/src/page的这个文件夹名称
+  //网站模块名，默认为page，修改这里的配置的同时，也要同时重命名/src/page的这个文件夹名称
   moduleName:'page',
 
   build: {

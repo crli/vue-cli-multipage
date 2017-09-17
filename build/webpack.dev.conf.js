@@ -35,8 +35,9 @@ for (var pathname in pages) {
   var conf = {
     filename: pathname + '.html',
     template: pages[pathname], // 模板路径
-    chunks: [pathname, 'vendors', 'manifest'], // 每个html引用的js模块
-    inject: true              // js插入位置
+    chunks: [pathname, 'vendor', 'manifest'], // 每个html引用的js模块
+    inject: true,  // js插入底部
+    hash: true
   };
   // 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象
   module.exports.plugins.push(new HtmlWebpackPlugin(conf));
