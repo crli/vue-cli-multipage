@@ -5,10 +5,9 @@ import Vuex from 'vuex'
 Vue.use(Router)
 Vue.use(Vuex)
 import '@config/common'
-// let address = r => require.ensure([], () => r(require('./address.vue')), 'address')
-// let addresschange = r => require.ensure([], () => r(require('./addresschange')), 'addresschange')
-let address = require('./address.vue')
-let addresschange = require('./addresschange')
+let address = r => require.ensure([], () => r(require('./address.vue')), 'address')
+let addresschange = r => require.ensure([], () => r(require('./addresschange')), 'addresschange')
+
 const routes = [
   {
     path: '/',

@@ -94,7 +94,6 @@ exports.getMultiEntry = function (globPath) {
     //console.log(pathname+'-----------'+entry);
 
   });
-
   return entries;
 
 }

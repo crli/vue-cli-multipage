@@ -37,12 +37,12 @@ axios.interceptors.response.use((res) => {
 }, (error) => {
   console.log('好多人在访问呀，请重新试试[timeout]')
   Indicator.close()
-  if (error.response) {
+  if (error) {
     let errortime = null
     clearTimeout(errortime)
     errortime = setTimeout(() => {
       Toast({
-        message: error.response.Msg,
+        message: error.message,
         position: 'middle',
         duration: 2000
       })

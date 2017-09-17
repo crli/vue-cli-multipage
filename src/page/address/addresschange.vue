@@ -26,5 +26,7 @@
 
 <style scoped lang="scss">
   @import "../../assets/css/mixin";
-
+a{
+  font-size: 24px
+}
 </style>

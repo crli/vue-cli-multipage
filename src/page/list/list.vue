@@ -33,5 +33,7 @@
 </script>
 
 <style scoped lang="scss">
-
+  .div{
+    font-size: 16px
+  }
 </style>

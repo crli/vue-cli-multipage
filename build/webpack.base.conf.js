@@ -81,10 +81,13 @@ var webpackConfig = {
       }
 
     ]
-  }
+  },
+  plugins: []
 }
 webpackConfig.entry = Object.assign({},webpackConfig.entry, entries);
-
+console.log('----------------------------------------------------------------')
+console.log(webpackConfig.entry)
+console.log('----------------------------------------------------------------')
 const vuxLoader = require('vux-loader')
 module.exports = vuxLoader.merge(webpackConfig, {
   plugins: ['vux-ui', 'progress-bar', 'duplicate-style']

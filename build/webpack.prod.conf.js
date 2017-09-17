@@ -22,7 +22,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       extract: true
     })
   },
-  devtool: config.build.productionSourceMap ? '#source-map' : false,  //生产模式调试
+  // devtool: config.build.productionSourceMap ? '#source-map' : false,  //生产模式调试
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
@@ -41,7 +41,8 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css')
+      filename: utils.assetsPath('css/[name].[contenthash].css'),
+      allChunks: true
     }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
@@ -54,7 +55,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     // extract webpack runtime and module manifest to its own file in order to
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor','manifest'],
+      name: 'vendor',
       chunks: chunks,
       minChunks: 2
     })
@@ -95,7 +96,7 @@ for (var pathname in pages) {
   var conf = {
     filename: pathnamestr + '.html',
     template: pages[pathname], // 模板路径
-    chunks: [pathname,'vendor','manifest'], // 每个html引用的js模块
+    chunks: [pathname,'vendor'], // 每个html引用的js模块
     inject: true              // js插入位置
   };
 
