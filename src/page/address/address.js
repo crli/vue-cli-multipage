@@ -1,31 +1,20 @@
 import Vue from 'vue'
-import App from './app'
 import Router from 'vue-router'
 import Vuex from 'vuex'
 Vue.use(Router)
 Vue.use(Vuex)
 import '@config/common'
-let address = r => require.ensure([], () => r(require('./address.vue')), 'address')
+let app = r => require.ensure([], () => r(require('./app')), 'app')
 let addresschange = r => require.ensure([], () => r(require('./addresschange')), 'addresschange')
 
 const routes = [
   {
     path: '/',
-    component: App,
+    component: app,
     children: [
       {
-        path: '',
-        redirect: '/address'
-      },
-      {
-        path: '/address',
-        component: address,
-        children: [
-          {
-            path: '/address/addresschange',
-            component: addresschange
-          }
-        ]
+        path: '/addresschange',
+        component: addresschange
       }
     ]
   }
@@ -46,10 +35,6 @@ const store = new Vuex.Store({
 /* eslint-disable */
 new Vue({
   el: '#app',
-  template: '<App/>',
   router,
-  store,
-  components: {
-    App
-  }
+  store
 })
