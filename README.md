@@ -1,7 +1,7 @@
 vue-Multipage
 
 ## 主要功能
-  
+
  1. 支持字体图标
  2. 构建时，增加对css打包的支持
  3. 提取公共模块
@@ -12,7 +12,7 @@ vue-Multipage
  8. 基于`webpack2`，更高的构建速度，包体积更小，全面支持`ES6 Modules`
  9. 热更新
  10. 支持`Less`css预处理,`Sass`css预处理
- 11. 全局注册vue全局过滤器的方法 
+ 11. 全局注册vue全局过滤器的方法
 
 ## Build Setup
 
@@ -55,12 +55,11 @@ webpack
         |---address.html
         |---address.js
         |---addresschange.vue
-        |---addressRoot.vue
         |---app.vue
-     |---list    
+     |---list
         |---list.html#二级目录
         |---list.js
-        |---listApp.vue
+        |---app.vue
 ......
 
   ```
@@ -80,7 +79,7 @@ webpack
 
 因为vux 默认大小`375`,为了与`fleible.js`兼容 配置 `rootValue: 37.5`以及`propBlackList: ['font-size'] // 保持font-size不转换成rem`
 
-此时如果如果页面基准是`750`,者如果PSD图大小`100px`, 字号大小`32`,则代码编写为 `width:50px; font-size:16px` 
+此时如果如果页面基准是`750`,者如果PSD图大小`100px`, 字号大小`32`,则代码编写为 `width:50px; font-size:16px`
 
 编译结果`width` 转为了`rem` , `font-size` 保持`16px`不变
 
@@ -101,7 +100,7 @@ import '@config/common'
 
 ``` bash
 import lib from '@config/lib';
-lib.ajax({}); 
+lib.ajax({});
 ```
 
 ## mUtils.js库使用
