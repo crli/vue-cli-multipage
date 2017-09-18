@@ -6,12 +6,14 @@
     </transition>
     <div class="div">{{div}}</div>
     <div class="box">{{list}}</div>
+    <tpl headfont></tpl>
   </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
   import {homebanner} from '@server'
+  import tpl from '@components/tpl'
   export default {
     name: 'app',
     data () {
@@ -20,6 +22,7 @@
       }
     },
     components: {
+      tpl
     },
     async mounted () {
       let response = await homebanner()

@@ -10,6 +10,9 @@ var chunks = Object.keys(entries);
 
 console.log(chunks)
 
+var comps = glob.sync('./src/components/*.vue');
+var compsEntry = {components: comps};
+
 var projectRoot = path.resolve(__dirname, '../')
 
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -85,6 +88,7 @@ var webpackConfig = {
   plugins: []
 }
 webpackConfig.entry = Object.assign({},webpackConfig.entry, entries);
+webpackConfig.entry = Object.assign({},webpackConfig.entry, compsEntry);
 console.log('----------------------------------------------------------------')
 console.log(webpackConfig.entry)
 console.log('----------------------------------------------------------------')

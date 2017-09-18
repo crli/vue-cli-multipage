@@ -26,7 +26,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    chunkFilename: utils.assetsPath('js/[name].[chunkhash].js')
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -51,12 +51,8 @@ var webpackConfig = merge(baseWebpackConfig, {
         safe: true
       }
     }),
-
-    // extract webpack runtime and module manifest to its own file in order to
-    // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      chunks: chunks,
+      name: ['vendor','components','common'],
       minChunks: 2
     })
   ]
@@ -96,7 +92,7 @@ for (var pathname in pages) {
   var conf = {
     filename: pathnamestr + '.html',
     template: pages[pathname], // 模板路径
-    chunks: [pathname,'vendor'], // 每个html引用的js模块
+    chunks: [pathname,'vendor','components','common'], // 每个html引用的js模块
     inject: true              // js插入位置
   };
 

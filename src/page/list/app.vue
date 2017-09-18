@@ -1,13 +1,16 @@
 <template>
   <div id="">
     <div class="div" @click="toAddress">单击去路由页面</div>
+    <tpl headfont></tpl>
   </div>
 </template>
 
 <script>
   import { Indicator } from 'mint-ui'
+  import tpl from '@components/tpl'
   export default {
     components: {
+      tpl
     },
     data () {
       return {

@@ -1,18 +1,15 @@
 vue-Multipage
 
 ## 主要功能
-  
- 1. 支持字体图标
- 2. 构建时，增加对css打包的支持
- 3. 提取公共模块
- 4. 多页面可使用vue-router2路由,路由按需加载
- 5. 可自定义页面模块名，例如 http:// localhost:1234/`page`/list.html，`page`就是我们线上的模块名，
- 6. 模块下静态文件可直接调用
- 7. 整合了UI框架，`vuxui2.x`，`mint-ui`(弹窗提示使用的mint-ui,不用可不引入)
- 8. 基于`webpack2`，更高的构建速度，包体积更小，全面支持`ES6 Modules`
- 9. 热更新
- 10. 支持`Less`css预处理,`Sass`css预处理
- 11. 全局注册vue全局过滤器的方法 
+ 1. 支持字体图标,css分离打包
+ 2. 各入口文件分离打包,第三方库模块打包,公共组件分离打包
+ 3. 支持vue-router路由按需加载
+ 4. 可自定义页面入口模块名
+ 5. 整合了UI框架，`vuxui2.x`，`mint-ui`(弹窗提示使用的mint-ui,不用可不引入)
+ 6. 基于`webpack2`，全面支持`ES6 Modules`
+ 7. 热更新
+ 8. 支持`Less`css预处理,`Sass`css预处理
+ 9. 全局注册vue全局过滤器的方法 
 
 ## Build Setup
 
@@ -55,12 +52,11 @@ webpack
         |---address.html
         |---address.js
         |---addresschange.vue
-        |---addressRoot.vue
         |---app.vue
      |---list    
         |---list.html#二级目录
         |---list.js
-        |---listApp.vue
+        |---app.vue
 ......
 
   ```
@@ -69,9 +65,7 @@ webpack
 
 从目录结构上，各种组件、页面模块、资源等都按类新建了文件夹，方便我们储存文件。其实我们所有的文件，最主要都是放在`page`文件夹里，以文件夹名为html的名称。
 
-在`page`里二级文件夹，一个文件夹就是一个入口，`js``vue``html` 都统一放在当前文件夹里，当然你也可以继续放其他的资源，例如css、图片等，webpack会打包到当前模块里。
-
-还有一点要注意的，所有的目录都要求为二级，不能一个目录下为一级，另一个目录下有二级。
+在`page`里二级文件夹，一个文件夹就是一个入口，`js``vue``html` 都统一放在当前文件夹里
 
 
 ## 移动自适应
