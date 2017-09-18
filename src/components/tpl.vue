@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    啦啦啦啦啦啦
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   props: {
     headfont: {
       type: String,
-      default: '导航'
+      default: '啦啦'
     }
   }
 }
