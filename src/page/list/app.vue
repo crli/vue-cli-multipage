@@ -1,6 +1,6 @@
 <template>
   <div id="">
-    <div class="div" @click="toAddress">单击去路由页面</div>
+    <div class="div" @click="toAddress">单击去路由页面a2</div>
     <tpl headfont></tpl>
   </div>
 </template>

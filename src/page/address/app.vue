@@ -1,6 +1,6 @@
 <template>
   <div id="address">
-  <router-link to="/addresschange" class="s">去子路由a</router-link>
+  <router-link to="/addresschange" class="s">去子路由a2111111112</router-link>
     <transition name="router-slid">
       <router-view></router-view>
     </transition>
@@ -18,7 +18,7 @@
     name: 'app',
     data () {
       return {
-        div: 1
+        div: 41
       }
     },
     components: {

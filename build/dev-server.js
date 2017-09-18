@@ -10,9 +10,7 @@ var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = process.env.NODE_ENV === 'testing'
-  ? require('./webpack.prod.conf')
-  : require('./webpack.dev.conf')
+var webpackConfig = require('./webpack.dev.conf')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -31,7 +29,8 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler, {
-  log: () => {}
+  log: false,
+  heartbeat: 2000
 })
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
@@ -67,6 +66,11 @@ app.use(staticPath, express.static('./static'))
 
 var uri = 'http://localhost:' + port+'/page/list.html'
 
+var _resolve
+var readyPromise = new Promise(resolve => {
+  _resolve = resolve
+})
+
 devMiddleware.waitUntilValid(function () {
   console.log('> 构建完成，已自动在浏览器打开页面，如未自动打开，请手工复制下面的链接，复制到浏览器里打开。')
   console.log('> Listening at ' + uri + '\n')
@@ -74,14 +78,12 @@ devMiddleware.waitUntilValid(function () {
     opn(uri)
   }
 })
+var server = app.listen(port)
 
-module.exports = app.listen(port, function (err) {
-  if (err) {
-    console.log(err)
-    return
+module.exports = {
+  ready: readyPromise,
+  close: () => {
+    server.close()
   }
-  console.log("\n正在构建初始化中，构建完成后，将自动在浏览器打开页面。");
-  // when env is testing, don't need open it
+}
 
-
-})
