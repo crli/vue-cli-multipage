@@ -8,10 +8,10 @@ axios.defaults.timeout = 10000
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 
 axios.interceptors.request.use((config) => {
-  Indicator.open({
-    text: '加载中...',
-    spinnerType: 'fading-circle'
-  })
+  // Indicator.open({
+  //   text: '加载中...',
+  //   spinnerType: 'fading-circle'
+  // })
   if (config.method === 'post') {
     config.data = qs.stringify(config.data)
   }
@@ -27,12 +27,7 @@ axios.interceptors.request.use((config) => {
 })
 
 axios.interceptors.response.use((res) => {
-  let timetp = null
-  clearTimeout(timetp)
-  timetp = setTimeout(() => {
-    Indicator.close()
-    clearTimeout(timetp)
-  }, 2000)
+  // Indicator.close()
   return res
 }, (error) => {
   console.log('好多人在访问呀，请重新试试[timeout]')
