@@ -25,7 +25,7 @@
       tpl
     },
     async mounted () {
-      let response = await homebanner()
+      let response = await homebanner(1)
       if (response.data.Error === 0) {
         this.banner = response.data.data
       }

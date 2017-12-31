@@ -1,4 +1,9 @@
-let guarantee = 'http://guarantee.api.wangshengxiang.com'
+let baseUrl = ''
+if (process.env.NODE_ENV === 'development') {
+  baseUrl = 'http://x.x.x.x:5555'
+} else {
+  baseUrl = 'https://www.baidu.com/'
+}
 export default {
-  'home_banner': guarantee + '/open/guarantee/home_banner/JZMIAATOUH'
+  'pro1': baseUrl
 }
