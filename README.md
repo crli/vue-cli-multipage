@@ -95,8 +95,17 @@ import '@config/common'
 在`lib.js`调用事件
 
 ``` bash
-import lib from '@config/lib';
-lib.ajax({});
+import { wxInit } from '@config/lib';
+wxInit({
+    appId: appId,
+    timestamp: timestamp,
+    nonceStr: nonceStr,
+    signature: signature
+    }, {
+    share_title: '分享标题',
+    share_description: '分享的描述',
+    thumb: '分享图片'
+    }, '分享链接');
 ```
 
 ## mUtils.js库使用
