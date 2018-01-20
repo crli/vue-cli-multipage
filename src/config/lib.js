@@ -82,3 +82,39 @@ export const wxInit = (sd, sharobj, href) => {
     // 对于SPA可以在这里更新签名。
   })
 }
+
+/**
+ * 微信支付
+ * @param {微信签名所需对象} sd
+ * @param {支付所需字段} paysd
+ * @param {回调函数} cb
+ */
+export const wxpay = (sd, paysd, cb) => {
+  const wx = Vue.wechat
+  wx.config({
+    debug: false,
+    appId: sd.appId,
+    timestamp: sd.timestamp,
+    nonceStr: sd.nonceStr,
+    signature: sd.signature,
+    jsApiList: [
+      'chooseWXPay'
+    ]
+  })
+  wx.ready(function () {
+    wx.chooseWXPay({
+      timestamp: paysd.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+      nonceStr: paysd.nonceStr, // 支付签名随机串，不长于 32 位
+      package: paysd.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
+      signType: paysd.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+      paySign: paysd.paySign, // 支付签名
+      success: function (res) {
+        // 支付成功后的回调函数
+        cb(res)
+      }
+    })
+  })
+  wx.error(function (res) {
+    // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看
+  })
+}
