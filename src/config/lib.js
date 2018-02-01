@@ -89,7 +89,7 @@ export const wxInit = (sd, sharobj, href) => {
  * @param {支付所需字段} paysd
  * @param {回调函数} cb
  */
-export const wxpay = (sd, paysd, cb) => {
+export const wxpay = (sd, paysd, cb, cancelCb) => {
   const wx = Vue.wechat
   wx.config({
     debug: false,
@@ -111,10 +111,26 @@ export const wxpay = (sd, paysd, cb) => {
       success: function (res) {
         // 支付成功后的回调函数
         cb(res)
+      },
+      cancel: function (res) {
+        // 取消支付后的回调函数
+        cancelCb(res)
       }
     })
   })
   wx.error(function (res) {
     // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看
+  })
+}
+/**
+ * 图片预览
+ * @param {数组中当前图片链接} src
+ * @param {图片数组} imgPaths
+ */
+export const wximgview = (src, imgPaths) => {
+  const wx = Vue.wechat
+  wx.previewImage({
+    current: src,
+    urls: imgPaths
   })
 }
