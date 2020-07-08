@@ -2,7 +2,7 @@
  * @Author: crli
  * @Date: 2020-07-01 15:37:55
  * @LastEditors: crli
- * @LastEditTime: 2020-07-02 10:10:22
+ * @LastEditTime: 2020-07-08 14:47:36
  * @Description: file content
  */
 const glob = require('glob')
@@ -44,7 +44,16 @@ module.exports = {
   publicPath: './', //  解决打包之后静态文件路径404的问题
   devServer: {
     open: true, //  npm run serve 自动打开浏览器
-    index: defualthtml//  默认启动页面
+    index: defualthtml, //  默认启动页面
+    // proxy: {
+    //   [process.env.VUE_APP_BASE_API]: {
+    //     target: 'http://xx.x..x.x./',
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       ['^' + process.env.VUE_APP_BASE_API]: ''
+    //     }
+    //   }
+    // }
   },
   lintOnSave: false,
   configureWebpack: {
@@ -60,7 +69,7 @@ module.exports = {
       postcss: {
         plugins: [
           require('postcss-plugin-px2rem')({
-            rootValue: 192,
+            rootValue: 37.5, // pc端设置192
             mediaQuery: false,
             minPixelValue: 0,
             propBlackList: ['font-size'] // 如果要保持font-size不转换

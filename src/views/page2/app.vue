@@ -2,7 +2,7 @@
  * @Author: crli
  * @Date: 2020-06-30 13:31:02
  * @LastEditors: crli
- * @LastEditTime: 2020-07-02 09:54:07
+ * @LastEditTime: 2020-07-08 14:41:11
  * @Description: file content
 -->
 <template>
@@ -23,6 +23,7 @@
 import Navbar from '@/components/Navbar'
 import img1 from '@/assets/images/1.jpg'
 import img2 from '@/assets/images/2.jpg'
+import { login } from '@/server/user'
 export default {
   name: 'app',
   components: {
@@ -40,6 +41,11 @@ export default {
       imglist: [img1, img2],
       num: 'v-0'
     }
+  },
+  mounted () {
+    login().then((res) => {
+      console.log(res)
+    })
   },
   methods: {
     getData (v) {

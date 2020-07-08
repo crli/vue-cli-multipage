@@ -2,85 +2,51 @@
  * @Author: crli
  * @Date: 2020-06-30 13:31:02
  * @LastEditors: crli
- * @LastEditTime: 2020-07-02 10:27:33
+ * @LastEditTime: 2020-07-08 15:03:24
  * @Description: file content
 -->
 <template>
   <div class="home">
-    <div class="view">
-      <div class="inside">
-        page111111111111111111111
-        <transition name="component-fade" mode="out-in">
-          <component :is="num" aaa="111"></component>
-        </transition>
-      </div>
-    </div>
-    <navbar class="navbar" @changeData="getData"/>
+    page1
+    <img alt="Vue logo" src="../../assets/images/1.jpg">
+    <Button type="primary">主要按钮</Button>
+    <Button type="info">信息按钮</Button>
+    <Button type="warning">警告按钮</Button>
+    <Button type="danger">危险按钮</Button>
+    <CellGroup>
+      <Cell title="单元格" value="内容" />
+      <Cell title="单元格" value="内容" label="描述信息" />
+    </CellGroup>
+    <Calendar v-model="show" />
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
-import img1 from '@/assets/images/1.jpg'
-import img2 from '@/assets/images/2.jpg'
+import { login } from '@/server/user'
+import { Button, Cell, CellGroup, Calendar } from 'vant'
 export default {
   name: 'app',
   components: {
-    Navbar,
-    // 'v-0': Navbar,
-    'v-0': {
-      template: `<img src="${img1}">`
-    },
-    'v-1': {
-      template: `<img src="${img2}">`
-    }
+    Button,
+    Cell,
+    CellGroup,
+    Calendar
   },
   data () {
     return {
-      imglist: [img1, img2],
-      num: 'v-0'
+      num: 1,
+      show: true
     }
   },
+  mounted () {
+    login().then((res) => {
+      console.log(res)
+    })
+  },
   methods: {
-    getData (v) {
-      if (v % 2 === 0) {
-        this.num = 'v-0'
-      } else {
-        this.num = 'v-1'
-      }
-    }
   }
 }
 </script>
 <style lang="scss" scoped>
 @import "@/assets/styles/mixin";
-.home{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  .view{
-    flex: 1;
-    background: cornsilk;
-    position: relative;
-    img{
-      max-width: 100%;
-      max-height: 100%;
-    }
-    .inside{
-      width: 1200px;
-      height: 600px;
-      @include center
-    }
-  }
-  .navbar{
-    width: 100px;
-  }
-}
-.component-fade-enter-active, .component-fade-leave-active {
-  transition: opacity .3s ease;
-}
-.component-fade-enter, .component-fade-leave-to
-/* .component-fade-leave-active for below version 2.1.8 */ {
-  opacity: 0;
-}
 </style>
