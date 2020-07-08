@@ -2,13 +2,13 @@
  * @Author: crli
  * @Date: 2020-06-30 13:31:02
  * @LastEditors: crli
- * @LastEditTime: 2020-07-08 14:41:11
+ * @LastEditTime: 2020-07-08 15:24:16
  * @Description: file content
 -->
 <template>
   <div class="home">
     <div class="view">
-      page2
+      pc
       <div class="inside">
         <transition name="component-fade" mode="out-in">
           <component :is="num" aaa="111"></component>
@@ -69,7 +69,7 @@ export default {
     background: cornsilk;
     position: relative;
     img{
-      width: 100%;
+      width: 200px;
     }
     .inside{
       width: 1200px;

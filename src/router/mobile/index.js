@@ -7,7 +7,7 @@
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import app from '@/views/page1/app.vue'
+import app from '@/views/mobile/app.vue'
 
 Vue.use(VueRouter)
 
@@ -23,7 +23,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '@/views/page1/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@/views/mobile/About.vue')
   }
 ]
 

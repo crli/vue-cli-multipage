@@ -7,7 +7,7 @@
 -->
 <template>
   <div class="home">
-    page1
+    mobile
     <img alt="Vue logo" src="../../assets/images/1.jpg">
     <Button type="primary">主要按钮</Button>
     <Button type="info">信息按钮</Button>
