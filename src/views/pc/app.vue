@@ -2,14 +2,14 @@
  * @Author: crli
  * @Date: 2020-06-30 13:31:02
  * @LastEditors: crli
- * @LastEditTime: 2020-07-02 10:27:33
+ * @LastEditTime: 2020-07-08 15:24:16
  * @Description: file content
 -->
 <template>
   <div class="home">
     <div class="view">
+      pc
       <div class="inside">
-        page111111111111111111111
         <transition name="component-fade" mode="out-in">
           <component :is="num" aaa="111"></component>
         </transition>
@@ -23,6 +23,7 @@
 import Navbar from '@/components/Navbar'
 import img1 from '@/assets/images/1.jpg'
 import img2 from '@/assets/images/2.jpg'
+import { login } from '@/server/user'
 export default {
   name: 'app',
   components: {
@@ -40,6 +41,11 @@ export default {
       imglist: [img1, img2],
       num: 'v-0'
     }
+  },
+  mounted () {
+    login().then((res) => {
+      console.log(res)
+    })
   },
   methods: {
     getData (v) {
@@ -63,8 +69,7 @@ export default {
     background: cornsilk;
     position: relative;
     img{
-      max-width: 100%;
-      max-height: 100%;
+      width: 200px;
     }
     .inside{
       width: 1200px;

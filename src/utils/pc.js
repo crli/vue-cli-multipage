@@ -2,9 +2,9 @@
  * @Author: crli
  * @Date: 2020-07-02 09:51:56
  * @LastEditors: crli
- * @LastEditTime: 2020-07-02 09:52:07
- * @Description: file content
+ * @LastEditTime: 2020-07-08 14:54:16
+ * @Description: PC端
  */
 import '@/assets/styles/common.scss' // global css
 import '@/assets/styles/animate.css' // global css
-require('@/utils/flexible.js')
+require('@/utils/pcrem.js')
