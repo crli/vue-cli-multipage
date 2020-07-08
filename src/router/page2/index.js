@@ -2,12 +2,12 @@
  * @Author: crli
  * @Date: 2020-07-02 09:04:26
  * @LastEditors: crli
- * @LastEditTime: 2020-07-02 09:49:50
+ * @LastEditTime: 2020-07-08 15:18:50
  * @Description: file content
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import app from '@/views/page1/app.vue'
+import app from '@/views/page2/app.vue'
 
 Vue.use(VueRouter)
 
