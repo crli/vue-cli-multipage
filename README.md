@@ -1,4 +1,4 @@
-vue-Multipage
+vue-cli-multipage2.0
 
 ## 主要功能
 
@@ -75,11 +75,11 @@ webpack
     |---pcrem.js    #pc端rem自适应
   |---view    #各个页面视图模块
     |---mobile  （移动端示例）
-      |---mobile.html
-      |---mobile.js
-    |---pc
-      |---pc.html (pc端示例)
-      |---pc.js
+      |---app.vue
+      |---xx.vue
+    |---pc  (pc端示例)
+      |---app.vue
+      |---xx.vue
 ......
 
   ```
