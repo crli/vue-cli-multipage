@@ -11,7 +11,7 @@ vue-cli-multipage2.0
  7. 热更新
  8. 支持`Sass`css预处理
  9. 全局注册vue全局过滤器的方法 
-
+ 10. 支持`Mock`数据处理
 
 ## Project setup
 ```
@@ -68,7 +68,6 @@ webpack
   |---utils 插件
     |---mobile.js    #移动端项目全局样式依赖
     |---fleible.js    #手淘rem自适应
-    |---mUtils.js    # 自定义方法
     |---vueFilter.js    #注册vue的全局过滤器
     |---hybrid.js    #与原生联调传参使用
     |---pc.js    #pc端项目全局样式依赖
@@ -114,13 +113,14 @@ import '@/utils/pc'
 ```
 这就是全局统一公共模块
 
-## mUtils.js库使用
+## crliutils库使用
 
-在`mUtils.js`调用方法
+前端工具库`crliutils`调用方法
 
 ``` bash
-import {setStore} from 'mUtils'
-setStore('name','crli')
+import crliutils, {storage} from 'crliutils'
+console.log(crliutils)
+storage.setStore('name','crli')
 ```
 ## 启动
 ``` bash

@@ -2,11 +2,11 @@
  * @Author: crli
  * @Date: 2020-02-04 16:00:11
  * @LastEditors: crli
- * @LastEditTime: 2020-07-08 14:00:31
+ * @LastEditTime: 2021-06-21 15:35:00
  * @Description: file content
  */
 import axios from 'axios'
-import qs from 'qs'
+// import qs from 'qs'
 import { Toast } from 'vant'
 import Vue from 'vue'
 Vue.prototype.$ajax = axios
@@ -20,9 +20,9 @@ const service = axios.create({
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'
 // axios.defaults.withCredentials = true
 service.interceptors.request.use((config) => {
-  if (config.method === 'post') {
-    config.data = qs.stringify(config.data)
-  }
+  // if (config.method === 'post') {
+  //   config.data = qs.stringify(config.data)
+  // }
   return config
 }, (error) => {
   Toast({

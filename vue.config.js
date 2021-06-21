@@ -2,7 +2,7 @@
  * @Author: crli
  * @Date: 2020-07-01 15:37:55
  * @LastEditors: crli
- * @LastEditTime: 2020-07-08 15:29:13
+ * @LastEditTime: 2021-06-21 15:36:13
  * @Description: file content
  */
 const glob = require('glob')
@@ -45,15 +45,17 @@ module.exports = {
   devServer: {
     open: true, //  npm run serve 自动打开浏览器
     index: defualthtml, //  默认启动页面
-    // proxy: {
-    //   [process.env.VUE_APP_BASE_API]: {
-    //     target: 'http://xx.x..x.x./',
-    //     changeOrigin: true,
-    //     pathRewrite: {
-    //       ['^' + process.env.VUE_APP_BASE_API]: ''
-    //     }
-    //   }
-    // }
+    proxy: {
+      [process.env.VUE_APP_BASE_API + '/asdfd']: {
+        target: `http://xxx.xx.xx.xx/api/asdfd`,
+        changeOrigin: true,
+        // logLevel: 'debug',
+        pathRewrite: {
+          ['^' + process.env.VUE_APP_BASE_API + '/asdfd']: ''
+        }
+      }
+    },
+    after: require('./mock/mock-server.js')
   },
   lintOnSave: false,
   configureWebpack: {

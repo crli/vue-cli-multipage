@@ -2,27 +2,28 @@
  * @Author: crli
  * @Date: 2020-06-30 13:31:02
  * @LastEditors: crli
- * @LastEditTime: 2020-07-08 15:03:24
+ * @LastEditTime: 2021-06-21 15:35:36
  * @Description: file content
 -->
 <template>
   <div class="home">
     mobile
-    <img alt="Vue logo" src="../../assets/images/1.jpg">
-    <Button type="primary">主要按钮</Button>
+    <!-- <img alt="Vue logo" src="../../assets/images/1.jpg"> -->
+    <!-- <Button type="primary">主要按钮</Button>
     <Button type="info">信息按钮</Button>
     <Button type="warning">警告按钮</Button>
     <Button type="danger">危险按钮</Button>
     <CellGroup>
       <Cell title="单元格" value="内容" />
       <Cell title="单元格" value="内容" label="描述信息" />
-    </CellGroup>
-    <Calendar v-model="show" />
+    </CellGroup> -->
+    <!-- <Calendar v-model="show" /> -->
   </div>
 </template>
 
 <script>
-import { login } from '@/server/user'
+import { login, xxxxxx } from '@/server/user'
+import crliutils, {time} from 'crliutils'
 import { Button, Cell, CellGroup, Calendar } from 'vant'
 export default {
   name: 'app',
@@ -39,9 +40,14 @@ export default {
     }
   },
   mounted () {
-    login().then((res) => {
+    console.log(crliutils)
+    console.log(time)
+    login({lang: "zh-CN"}, {pageNum: 1, pageSize: 10}).then((res) => {
       console.log(res)
     })
+    // xxxxxx({lang: "zh-CN"}, {pageNum: 1, pageSize: 10}).then((res) => {
+    //   console.log(res)
+    // })
   },
   methods: {
   }
