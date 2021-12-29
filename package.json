@@ -30,7 +30,7 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-polyfill": "^6.26.0",
-    "crliutils": "0.0.5",
+    "crliutils": "^0.0.6",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",

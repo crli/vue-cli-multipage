@@ -2,7 +2,7 @@
  * @Author: crli
  * @Date: 2020-06-30 13:31:02
  * @LastEditors: crli
- * @LastEditTime: 2021-06-21 15:35:36
+ * @LastEditTime: 2021-12-29 13:59:26
  * @Description: file content
 -->
 <template>
@@ -23,7 +23,7 @@
 
 <script>
 import { login, xxxxxx } from '@/server/user'
-import crliutils, {time} from 'crliutils'
+import crliutils, {isEmail} from 'crliutils'
 import { Button, Cell, CellGroup, Calendar } from 'vant'
 export default {
   name: 'app',
@@ -41,7 +41,7 @@ export default {
   },
   mounted () {
     console.log(crliutils)
-    console.log(time)
+    console.log(isEmail)
     login({lang: "zh-CN"}, {pageNum: 1, pageSize: 10}).then((res) => {
       console.log(res)
     })
