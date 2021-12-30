@@ -118,9 +118,9 @@ import '@/utils/pc'
 前端工具库`crliutils`调用方法
 
 ``` bash
-import crliutils, {storage} from 'crliutils'
+import crliutils, {setStore} from 'crliutils'
 console.log(crliutils)
-storage.setStore('name','crli')
+setStore('name','crli')
 ```
 ## 启动
 ``` bash
